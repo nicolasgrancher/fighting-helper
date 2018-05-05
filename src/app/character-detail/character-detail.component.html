@@ -1,0 +1,67 @@
+<mat-card *ngIf="character">
+  <mat-card-title>{{ character.name }}</mat-card-title>
+
+  <mat-card-content>
+    <mat-form-field>
+      <input matInput [(ngModel)]="character.name" placeholder="name">
+    </mat-form-field>
+    <mat-checkbox [(ngModel)]="character.isPC">is PC</mat-checkbox>
+    <mat-checkbox [(ngModel)]="character.isCaster">is caster</mat-checkbox>
+    <mat-form-field>
+      <input matInput [(ngModel)]="character.attacks" placeholder="attacks">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [(ngModel)]="character.init" placeholder="init">
+    </mat-form-field>
+    <label>
+      init malus: {{character.initMalus}}
+    </label>
+  </mat-card-content>
+
+  <mat-card-actions>
+    action:
+
+    <mat-accordion>
+      <mat-expansion-panel [expanded]="!character.isCaster">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            attack
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-checkbox [(ngModel)]="speed">speed</mat-checkbox>
+        <button mat-raised-button (click)="character.attack(false, speed)">single attack</button>
+        <button mat-raised-button color="primary" (click)="character.attack(true, speed)">multi attacks</button>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel *ngIf="character.isCaster" [expanded]="character.isCaster">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            cast
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-checkbox [(ngModel)]="speed">speed</mat-checkbox>
+        <mat-checkbox [(ngModel)]="speedCast">speed cast</mat-checkbox>
+        <mat-form-field>
+          <input matInput [(ngModel)]="spellLevel" placeholder="spell level">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="character.cast(spellLevel, speed, speedCast)">cast</button>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+
+    <ul>
+      <li *ngFor="let action of character.actions">
+        {{action.owner.name}}
+        {{action.init}}
+        {{action.getActionTypeText()}}
+
+      </li>
+    </ul>
+  </mat-card-actions>
+</mat-card>

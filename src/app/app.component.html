@@ -1,0 +1,21 @@
+<h1>Fighting Helper <sub>v3</sub></h1>
+
+<h2>Config</h2>
+<app-characters [characters]="characters"></app-characters>
+
+<h2>Fight</h2>
+<button mat-fab (click)="calculateRound()" *ngIf="!actions">Fight !</button>
+
+<div *ngIf="actions">
+  <h2>Round {{roundNumber}}</h2>
+  <ul>
+    <li *ngFor="let action of actions">
+      {{action.owner.name}}
+      {{action.init}}
+      {{action.getActionTypeText()}}
+
+    </li>
+  </ul>
+  <button mat-fab (click)="calculateRound()">Next round</button>
+
+</div>
