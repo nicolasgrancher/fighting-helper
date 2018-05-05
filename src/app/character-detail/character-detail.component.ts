@@ -13,6 +13,7 @@ export class CharacterDetailComponent implements OnInit {
   speed: boolean;
   speedCast: boolean;
   spellLevel: number;
+  complexCast: boolean;
 
 
   constructor() { }

@@ -7,6 +7,7 @@ export class Action {
 
   static BONUS_SPEED = 10;
   static TIME_TO_CAST_A_SPELL = 10;
+  static TIME_TO_CAST_A_SPELL_COMPLEX = 20;
 
   static DEFAULT_ACTION = 0;
   static SUP_ATT = 1;

@@ -42,7 +42,11 @@ export class Character {
     return actions;
   };
 
-  cast(spellLvl: number, speed: boolean, speedCast: boolean) {
+  cast(spellLvl: number, complexCast: boolean, speed: boolean, speedCast: boolean) {
+    // speedcast non utilisé (combiné dans l'action à l'init)
+
+    // TODO sort simple ou complexe 10 /20 segments (par défaut simple)
+
     let actions = [];
 
     let currentInit = this.getInit();
@@ -52,9 +56,13 @@ export class Character {
     }
 
     actions.push(new Action(this, currentInit, Action.BEG_CAST));
-    currentInit -= Action.TIME_TO_CAST_A_SPELL;
+
+    let timeToCast = complexCast ? Action.TIME_TO_CAST_A_SPELL_COMPLEX : Action.TIME_TO_CAST_A_SPELL;
+
+    currentInit -= Math.min(timeToCast, 0); // d'init négative pour ne pas pénaliser le mago => mini 0
     actions.push(new Action(this, currentInit, Action.END_CAST));
-    currentInit -= (spellLvl + 1);
+
+    currentInit -= Math.min((spellLvl + 1), 0); // d'init négative pour ne pas pénaliser le mago => mini 0
     actions.push(new Action(this, currentInit, Action.WAIT));
 
     this.actions = actions;
