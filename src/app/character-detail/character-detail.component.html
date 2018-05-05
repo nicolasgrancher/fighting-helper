@@ -20,15 +20,16 @@
         <mat-form-field>
           <input matInput [(ngModel)]="character.attacks" placeholder="attacks">
         </mat-form-field>
-        <mat-form-field>
-          <input matInput [(ngModel)]="character.init" placeholder="init">
-        </mat-form-field>
-        <label>
-          init malus: {{character.initMalus}}
-        </label>
       </mat-expansion-panel>
     </mat-accordion>
   </mat-card-content>
+
+  <mat-form-field>
+    <input matInput [(ngModel)]="character.init" placeholder="init">
+  </mat-form-field>
+  <label>
+    init malus: {{character.initMalus}}
+  </label>
 
   <mat-card-actions>
     action:
