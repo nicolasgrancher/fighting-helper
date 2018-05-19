@@ -18,14 +18,14 @@
         <mat-checkbox [(ngModel)]="character.isPC">is PC</mat-checkbox>
         <mat-checkbox [(ngModel)]="character.isCaster">is caster</mat-checkbox>
         <mat-form-field>
-          <input matInput [(ngModel)]="character.attacks" placeholder="attacks">
+          <input matInput type="number" [(ngModel)]="character.attacks" placeholder="attacks">
         </mat-form-field>
       </mat-expansion-panel>
     </mat-accordion>
   </mat-card-content>
 
   <mat-form-field>
-    <input matInput [(ngModel)]="character.init" placeholder="init">
+    <input matInput type="number" [(ngModel)]="character.init" placeholder="init">
   </mat-form-field>
   <label>
     init malus: {{character.initMalus}}
@@ -61,7 +61,7 @@
         <mat-checkbox [(ngModel)]="speed">speed</mat-checkbox>
         <mat-checkbox [(ngModel)]="speedCast">speed cast</mat-checkbox>
         <mat-form-field>
-          <input matInput [(ngModel)]="spellLevel" placeholder="spell level">
+          <input matInput type="number" [(ngModel)]="spellLevel" placeholder="spell level">
         </mat-form-field>
         <mat-checkbox [(ngModel)]="complexCast">complex cast</mat-checkbox>
         <button mat-raised-button color="primary" (click)="character.cast(spellLevel, complexCast, speed, speedCast, negativeInit)">cast</button>
