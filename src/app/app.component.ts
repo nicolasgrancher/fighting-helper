@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {Action} from "./action";
 import {Character} from "./character";
 import {CharacterService} from "./character.service";
-import {$} from "protractor";
+import {ConfigService} from "./config.service";
 
 @Component({
   selector: 'app-root',
@@ -14,12 +14,15 @@ export class AppComponent {
   characters: Character[];
   actions: Action[];
   roundNumber: number = 0;
+  negativeInit: boolean;
 
-  constructor(private characterService: CharacterService) {
+  constructor(private characterService: CharacterService, private configService: ConfigService) {
   }
 
   ngOnInit() {
     this.getCharacters();
+
+    this.negativeInit = this.configService.negativeInit;
   }
 
   scrollToTop(): void {

@@ -1,7 +1,8 @@
 <h1>Fighting Helper <sub>v3</sub></h1>
 
 <h2>Config</h2>
-<app-characters [characters]="characters"></app-characters>
+<mat-checkbox [(ngModel)]="negativeInit">negative init</mat-checkbox>
+<app-characters [characters]="characters" [negativeInit]="negativeInit"></app-characters>
 
 <h2>Fight</h2>
 <button mat-fab (click)="calculateRound()" *ngIf="!actions">Fight !</button>

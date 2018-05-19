@@ -9,6 +9,7 @@ import {Character} from "../character";
 export class CharactersComponent implements OnInit {
 
   @Input() characters: Character[];
+  @Input() negativeInit: boolean;
 
   selectedCharacter: Character;
 

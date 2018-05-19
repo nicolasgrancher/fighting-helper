@@ -9,6 +9,7 @@ import { Character } from "../character";
 export class CharacterDetailComponent implements OnInit {
 
   @Input() character: Character;
+  @Input() negativeInit: boolean;
 
   speed: boolean;
   speedCast: boolean;

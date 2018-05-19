@@ -5,15 +5,15 @@ export class Action {
   init: number;
   type: number;
 
-  static BONUS_SPEED = 10;
-  static TIME_TO_CAST_A_SPELL = 10;
-  static TIME_TO_CAST_A_SPELL_COMPLEX = 20;
+  static BONUS_SPEED: number = 10;
+  static TIME_TO_CAST_A_SPELL: number = 10;
+  static TIME_TO_CAST_A_SPELL_COMPLEX: number = 20;
 
-  static DEFAULT_ACTION = 0;
-  static SUP_ATT = 1;
-  static BEG_CAST = 2;
-  static END_CAST = 3;
-  static WAIT = 4;
+  static DEFAULT_ACTION: number = 0;
+  static SUP_ATT: number = 1;
+  static BEG_CAST: number = 2;
+  static END_CAST: number = 3;
+  static WAIT: number = 4;
 
   constructor(owner: Character, init: number, type: number) {
     this.owner = owner;

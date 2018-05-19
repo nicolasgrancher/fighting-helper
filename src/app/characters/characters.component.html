@@ -12,7 +12,7 @@
   </div>
 
   <div>
-    <app-character-detail [character]="selectedCharacter"></app-character-detail>
+    <app-character-detail [character]="selectedCharacter" [negativeInit]="negativeInit"></app-character-detail>
     <button mat-button color="warn" (click)="removeCharacter(selectedCharacter)" *ngIf="selectedCharacter">Delete
     </button>
   </div>

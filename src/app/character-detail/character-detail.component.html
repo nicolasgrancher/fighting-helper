@@ -64,7 +64,7 @@
           <input matInput [(ngModel)]="spellLevel" placeholder="spell level">
         </mat-form-field>
         <mat-checkbox [(ngModel)]="complexCast">complex cast</mat-checkbox>
-        <button mat-raised-button color="primary" (click)="character.cast(spellLevel, complexCast, speed, speedCast)">cast</button>
+        <button mat-raised-button color="primary" (click)="character.cast(spellLevel, complexCast, speed, speedCast, negativeInit)">cast</button>
       </mat-expansion-panel>
     </mat-accordion>
 
