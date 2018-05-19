@@ -1,17 +1,19 @@
-<div style="width: 30%; float: left;">
-  <mat-list>
-    <mat-list-item *ngFor="let character of characters" (click)="onSelect(character)"
-                   [class.selected]="character === selectedCharacter">
-      <mat-icon matListIcon>person</mat-icon>
-      {{character.name}}
-      <mat-icon *ngIf="character.actions.length > 0" style="color: green;">check</mat-icon>
-    </mat-list-item>
-  </mat-list>
-  <button mat-fab (click)="addCharacter()">+</button>
-</div>
+<div class="characters">
+  <div>
+    <mat-list>
+      <mat-list-item *ngFor="let character of characters" (click)="onSelect(character)"
+                     [class.selected]="character === selectedCharacter">
+        <mat-icon matListIcon>person</mat-icon>
+        {{character.name}}
+        <mat-icon *ngIf="character.actions.length > 0" class="done">check</mat-icon>
+      </mat-list-item>
+    </mat-list>
+    <button mat-fab (click)="addCharacter()">+</button>
+  </div>
 
-<div style="width: 70%; float: left;">
-  <app-character-detail [character]="selectedCharacter"></app-character-detail>
-  <button mat-button color="warn" (click)="removeCharacter(selectedCharacter)" *ngIf="selectedCharacter">Delete</button>
+  <div>
+    <app-character-detail [character]="selectedCharacter"></app-character-detail>
+    <button mat-button color="warn" (click)="removeCharacter(selectedCharacter)" *ngIf="selectedCharacter">Delete
+    </button>
+  </div>
 </div>
-<div style="clear: both;"></div>

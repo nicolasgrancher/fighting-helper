@@ -5,22 +5,26 @@
 
 <h2>Fight</h2>
 <button mat-fab (click)="calculateRound()" *ngIf="!actions">Fight !</button>
+<button mat-fab (click)="calculateRound()" *ngIf="actions">Next round</button>
 
 <div *ngIf="actions">
   <h2>Round {{roundNumber}}</h2>
 
-  <mat-card *ngFor="let action of actions" class="action-card" [ngClass]="{'action-card-pc': action.owner.isPC}">
-    <mat-card-title>{{action.init | number}}</mat-card-title>
+  <div class="actions-cards">
+    <mat-card *ngFor="let action of actions" class="action-card" [ngClass]="{'action-card-pc': action.owner.isPC}">
+      <mat-card-title>{{action.init | number}}</mat-card-title>
 
-    <mat-card-content>
-      {{ action.owner.name }}
-    </mat-card-content>
-    <mat-card-actions>
-      {{action.getActionTypeText()}}
-    </mat-card-actions>
-  </mat-card>
-  <div style="clear: both;"></div>
+      <mat-card-content>
+        {{ action.owner.name }}
+      </mat-card-content>
+      <mat-card-actions>
+        {{action.getActionTypeText()}}
+      </mat-card-actions>
+    </mat-card>
+  </div>
 
-  <button mat-fab (click)="calculateRound()">Next round</button>
+  <button mat-icon-button (click)="scrollToTop()">
+    <mat-icon>keyboard_arrow_up</mat-icon>
+  </button>
 
 </div>

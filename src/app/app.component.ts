@@ -2,11 +2,12 @@ import {Component} from '@angular/core';
 import {Action} from "./action";
 import {Character} from "./character";
 import {CharacterService} from "./character.service";
+import {$} from "protractor";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
 
@@ -19,6 +20,10 @@ export class AppComponent {
 
   ngOnInit() {
     this.getCharacters();
+  }
+
+  scrollToTop(): void {
+    window.scrollTo(0,0);
   }
 
   getCharacters(): void {
