@@ -1,0 +1,15 @@
+version: "3"
+
+services:
+  fighting-helper:
+    build: .
+    container_name: fighting-helper
+    ports:
+      - 5443:443
+    expose:
+      - 443
+    volumes:
+      - ./.docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - /etc/letsencrypt/:/etc/letsencrypt/
+      - ./var/logs:/var/logs/nginx
+    restart: always

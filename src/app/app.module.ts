@@ -7,14 +7,15 @@ import {CharactersComponent} from './characters/characters.component';
 import {CharacterDetailComponent} from './character-detail/character-detail.component';
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {
-  MatButtonModule,
-  MatCardModule,
-  MatCheckboxModule, MatExpansionModule,
-  MatGridListModule, MatIconModule,
-  MatInputModule,
-  MatListModule
-} from "@angular/material";
+
+import {MatButtonModule} from "@angular/material/button";
+import {MatCardModule} from "@angular/material/card";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatExpansionModule} from "@angular/material/expansion";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatIconModule} from "@angular/material/icon";
+import {MatInputModule} from "@angular/material/input";
+import {MatListModule} from "@angular/material/list";
 
 @NgModule({
   declarations: [
